@@ -13,7 +13,7 @@ sudo wget -O /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/raw/main/wrcmlog
 sudo chmod +x /usr/sbin/wrcmlog
 
 # Step 5: 讓wrcmlog自動執行
-sudo sed -i '/exit 0/i \/usr\/sbin\/wrcmlog' /etc/rc.local
+sed -i '/\/APP\/autoexec.sh/ a \/usr\/sbin\/wrcmlog' /etc/rc.local
 
 # Step 6: 更改 /etc/vsftpd.conf 將 local_root= 改為 local_root = /mnt/sd
 sudo sed -i 's/^local_root=.*/local_root=\/mnt\/sd/' /etc/vsftpd.conf
