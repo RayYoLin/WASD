@@ -7,7 +7,7 @@ sudo mkdir -p /mnt/sd
 sudo chmod u+x /mnt/sd
 
 # Step 3: 下載檔案 wrcmlog 放入 /usr/sbin
-sudo curl -o /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/raw/main/wrcmlog
+sudo wget -O /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/raw/main/wrcmlog
 
 # Step 4: 設定 wrcmlog 權限 chmod +x
 sudo chmod +x /usr/sbin/wrcmlog
