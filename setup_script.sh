@@ -7,15 +7,18 @@ sudo mkdir -p /mnt/sd
 sudo chmod u+x /mnt/sd
 
 # Step 3: 下載檔案 wrcmlog 放入 /usr/sbin
-sudo wget -O /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/blob/main/wrcmlog
+sudo curl -o /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/raw/main/wrcmlog
 
 # Step 4: 設定 wrcmlog 權限 chmod +x
 sudo chmod +x /usr/sbin/wrcmlog
 
-# Step 5: 更改 /etc/vsftpd.conf 將 local_root= 改為 local_root = /mnt/sd
+# Step 5: 讓wrcmlog自動執行
+sudo sed -i '/exit 0/i \/usr\/sbin\/wrcmlog' /etc/rc.local
+
+# Step 6: 更改 /etc/vsftpd.conf 將 local_root= 改為 local_root = /mnt/sd
 sudo sed -i 's/^local_root=.*/local_root=\/mnt\/sd/' /etc/vsftpd.conf
 
-# Step 6: 修改 /etc/network/interfaces
+# Step 7: 修改 /etc/network/interfaces
 # 新的 IP 位址
 new_address="192.168.3.128"
 
