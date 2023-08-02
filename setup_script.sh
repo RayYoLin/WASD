@@ -16,14 +16,15 @@ sudo chmod +x /usr/sbin/wrcmlog
 rc_local_path="/etc/rc.local"
 wrcmlog_path="/usr/sbin/wrcmlog"
 
-# Check if rc.local exists
-if [ -f "$rc_local_path" ]; then
-    # Insert wrcmlog before exit 0
-    sed -i "/exit 0/ i $wrcmlog_path" "$rc_local_path"
-    echo "Inserted $wrcmlog_path before exit 0 in $rc_local_path"
-else
-    echo "Error: $rc_local_path not found"
-fi
+# Define the content to be inserted
+insert_content="/usr/sbin/wrcmlog"
+
+# Define the file path
+file_path="/etc/rc.local"
+
+# Insert the content before the "exit 0" line using sed
+sed -i "/exit 0/ i $insert_content" "$file_path"
+echo "Inserted $insert_content before exit 0 in $file_path"
 
 # Step 6: 更改 /etc/vsftpd.conf 將 local_root= 改為 local_root = /mnt/sd
 sudo sed -i 's/^local_root=.*/local_root=\/mnt\/sd/' /etc/vsftpd.conf
