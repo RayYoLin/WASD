@@ -4,10 +4,10 @@
 sudo mkdir -p /mnt/sd
 
 # Step 2: 設定資料夾 /mnt/sd 權限 chmod +x
-sudo chmod +x /mnt/sd
+sudo chmod u+x /mnt/sd
 
 # Step 3: 下載檔案 wrcmlog 放入 /usr/sbin
-sudo wget -O /usr/sbin/wrcmlog https://github.com/RayYoLin/WASD/blob/main/wrcmlog
+sudo wget -O /usr/sbin/wrcmlog https://github.com/RayYoLin/WWWRRRRRCCCMMMM/blob/main/wrcmlog
 
 # Step 4: 設定 wrcmlog 權限 chmod +x
 sudo chmod +x /usr/sbin/wrcmlog
